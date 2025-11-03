@@ -1,0 +1,22 @@
+{
+  "name": "@liquity/ctf-drain-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "CTF challenge to practice draining a vulnerable vault on a mainnet-forked Anvil/Hardhat network using Liquity context.",
+  "scripts": {
+    "hardhat": "hardhat",
+    "compile": "hardhat compile",
+    "snapshot": "hardhat run scripts/fetchBalances.js",
+    "start:anvil": "ANVIL_FORK_URL=\"$ANVIL_FORK_URL\" node scripts/start-anvil.js",
+    "verify:fork": "hardhat run scripts/verifyMainnetState.js --network hardhat",
+    "seed:pools": "hardhat run scripts/seedPools.js --network hardhat",
+    "monitor:deploy": "hardhat run scripts/deployMonitor.js --network hardhat",
+    "monitor:reveal": "hardhat run scripts/revealFlag.js --network hardhat"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "ethers": "^5.4.3",
+    "hardhat": "^2.6.1",
+    "dotenv": "^16.3.1"
+  }
+}
