@@ -11,7 +11,9 @@
     "verify:fork": "hardhat run scripts/verifyMainnetState.js --network hardhat",
     "seed:pools": "hardhat run scripts/seedPools.js --network hardhat",
     "monitor:deploy": "hardhat run scripts/deployMonitor.js --network hardhat",
-    "monitor:reveal": "hardhat run scripts/revealFlag.js --network hardhat"
+    "monitor:reveal": "hardhat run scripts/revealFlag.js --network hardhat",
+    "impersonate": "hardhat run scripts/impersonate.js --network hardhat",
+    "call:raw": "hardhat run scripts/callRaw.js --network hardhat"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

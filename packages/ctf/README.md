@@ -4,6 +4,8 @@ Hunt for drain vectors on the real Liquity contracts using a strictly-forced mai
 
 Important: Do not attack mainnet. All testing happens on your local fork.
 
+See also: `AI_PLAYBOOK.md` for an agent-oriented, step-by-step guide.
+
 ## What’s included
 
 - Mainnet address map: `config/liquity.mainnet.addresses.json`
@@ -14,6 +16,7 @@ Important: Do not attack mainnet. All testing happens on your local fork.
   - Snapshots ETH balances of selected Liquity pools
   - Reveals a FLAG event once observed loss ≥ threshold
 - Attacker scaffold: `contracts/Attacker.sol`
+- Helpers for experimentation: `scripts/impersonate.js`, `scripts/callRaw.js`
 
 ## Strict fork mode
 
@@ -69,11 +72,17 @@ export MONITOR_ADDR=0x...
 
 The monitor snapshots ETH balances for: activePool, stabilityPool, defaultPool, collSurplusPool, gasPool. You can change this set using `MONITOR_TARGETS` (comma-separated keys from the addresses config).
 
-### 5) Find a loss vector
+### 5) Attack and iterate
 
 - Use `contracts/Attacker.sol` or your own scripts/contracts.
-- Interact with real Liquity addresses from `config/liquity.mainnet.addresses.json` on the fork.
-- If you can cause ETH to leave the targeted pools, the monitor will detect the loss.
+- Send raw calls:
+  ```bash
+  TARGET=0x... DATA=0x... VALUE_ETH=0.0 yarn workspace @liquity/ctf-drain-challenge call:raw
+  ```
+- Impersonate whales or system actors on the fork if setup is needed:
+  ```bash
+  IMPERSONATE=0xWhale FUND_WEI=100000000000000000 TARGET=0xYourEOA yarn workspace @liquity/ctf-drain-challenge impersonate
+  ```
 
 ### 6) Reveal the flag
 
