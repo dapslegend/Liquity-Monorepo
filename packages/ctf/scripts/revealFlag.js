@@ -7,11 +7,11 @@ async function main() {
   if (!addr) throw new Error('Set MONITOR_ADDR to the deployed CTFMonitor address');
 
   const mon = await ethers.getContractAt('CTFMonitor', addr);
-  const [loss] = await mon.currentLossWei();
-  console.log('Current observed loss (wei):', loss.toString());
+  const [loss,,allDrained] = await mon.currentLossWei();
+  console.log('Current observed loss (wei):', loss.toString(), 'drainedAll:', allDrained);
 
   console.log('Calling checkAndReveal...');
-  const tx = await mon.checkAndReveal(process.env.CLAIMANT || (await ethers.getSigners())[0].address);
+  const tx = await mon.checkAndReveal();
   const receipt = await tx.wait();
   for (const log of receipt.logs) {
     try {

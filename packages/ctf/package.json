@@ -12,6 +12,7 @@
     "seed:pools": "hardhat run scripts/seedPools.js --network hardhat",
     "monitor:deploy": "hardhat run scripts/deployMonitor.js --network hardhat",
     "monitor:reveal": "hardhat run scripts/revealFlag.js --network hardhat",
+    "monitor:enroll": "hardhat run scripts/enrollParticipant.js --network hardhat",
     "impersonate": "hardhat run scripts/impersonate.js --network hardhat",
     "call:raw": "hardhat run scripts/callRaw.js --network hardhat"
   },
