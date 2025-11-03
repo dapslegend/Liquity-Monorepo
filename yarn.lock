@@ -1791,6 +1791,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@liquity/ctf-drain-challenge@workspace:packages/ctf":
+  version: 0.0.0-use.local
+  resolution: "@liquity/ctf-drain-challenge@workspace:packages/ctf"
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.2
+    dotenv: ^16.3.1
+    ethers: ^5.4.3
+    hardhat: ^2.6.1
+  languageName: unknown
+  linkType: soft
+
 "@liquity/dev-frontend@workspace:packages/dev-frontend":
   version: 0.0.0-use.local
   resolution: "@liquity/dev-frontend@workspace:packages/dev-frontend"
@@ -10175,6 +10186,13 @@ __metadata:
   version: 8.2.0
   resolution: "dotenv@npm:8.2.0"
   checksum: ad4c8e0df3e24b4811c8e93377d048a10a9b213dcd9f062483b4a2d3168f08f10ec9c618c23f5639060d230ccdb174c08761479e9baa29610aa978e1ee66df76
+  languageName: node
+  linkType: hard
+
+"dotenv@npm:^16.3.1":
+  version: 16.6.1
+  resolution: "dotenv@npm:16.6.1"
+  checksum: e8bd63c9a37f57934f7938a9cf35de698097fadf980cb6edb61d33b3e424ceccfe4d10f37130b904a973b9038627c2646a3365a904b4406514ea94d7f1816b69
   languageName: node
   linkType: hard
 
